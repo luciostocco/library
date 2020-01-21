@@ -23,7 +23,7 @@ def client():
 
 class TestApi:
 
-    def test_post_request(self, client):
+    def test_post_book_request(self, client):
         # send data as POST form to endpoint
         payload = {"email":  "lucio@mail.com", "title": "Book 1"}
 
@@ -33,10 +33,18 @@ class TestApi:
         # check result from server with expected data
         #assert response.data == json.dumps(payload)
 
-    def test_get_request(self, client):
+    def test_get_book_by_id(self, client):
 
         response = client.get('/')
         assert response.status_code == 200
+
+    def test_list_books(self, client):
+        # It need to be implemented
+        pass
+
+    def test_delete_book(self, client):
+        # It need to be implemented
+        pass
 
 
 if __name__ == "__main__":

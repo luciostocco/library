@@ -11,3 +11,6 @@ class BookModel(db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.title
+
+
+db.Index('BookTitle', BookModel.title)

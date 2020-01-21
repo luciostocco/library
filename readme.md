@@ -1,8 +1,7 @@
 
 ## Book request
 
-This service is for a library, and we are adding a new ​/request ​endpoint which allows a user to request a book by title so that they can later be emailed when it is available. Endpoints should accept and return valid JSON. You are not required to consider authentication or
-authorization for this service.
+This is a library service. Wwe are adding a ​/request ​endpoint which allows a user to request a book by title so that they can later be emailed when it is available. 
 
 ## Getting Started
 
@@ -10,39 +9,63 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-* Python 3.6.5
+* If you don’t have them installed yet, install Docker and docker-compose.
 
 ### Installing
 
-1. Instal virtualenv
-
-```sh
-$ pip install virtualenv
-```
-
-2. Clone the repository
+1. Clone the repository
 
 ```sh
 $ git clone <https GitHub repo URL>
 ```
 
-3. Go to project folder
+2. Go to project folder
 
 ```sh
 $ cd xxxxx
 ```
 
-4. Activate virtualenv
+3. In order to run the our dockerized app, we will execute the following command from the terminal:
 
 ```sh
-$ source bin/activate
+$ docker-compose up
 ```
 
-5. Install dependences
+4. You can see the image being built, the packages installed according to the requirements.txt, etc. If everything went right, you will see the following line:
 
 ```sh
-$ pip install -r requirements.txt
+$ app_1  |  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ```
 
+5. We can find out that everything is running as expected by typing this url in a browser or using curl the follows URLS:
+
+```sh
+Add Request Endpoint:
+=============================
+$ curl -v -H POST http://0.0.0.0:5000/request -H "Content-Type: application/json" -d "{ \"email\":  \"lucio@mail.com\", \"title\": \"Book 1\"}"
+
+Retrieve Request(s) Endpoint
+=============================
+Get a specific Id
+=================
+$ curl -v -H GET http://0.0.0.0:5000/request/1 -H "Content-Type: application/json"
+
+Get all Ids
+=================
+$ curl -v -H GET http://0.0.0.0:5000/request -H "Content-Type: application/json"
+
+Delete Request Endpoint
+=============================
+curl -X DELETE http://0.0.0.0:5000/request/3 
+```
+
+5. The following books are available for requisition: (initial seed)
+   POST request endpoint will only be accepted for these books titles
+
+```sh
+Book 1
+Book 2
+Book 3
+Book 4
+Book 5
+```

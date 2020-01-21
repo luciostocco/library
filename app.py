@@ -26,7 +26,7 @@ DatabaseSeed().seed_book_table()
 
 
 @app.route('/request', methods=['POST'])
-def post_book():
+def post_book_request():
 
     data = request.get_json()
 
@@ -107,4 +107,4 @@ app.config['TRAP_HTTP_EXCEPTIONS'] = True
 app.register_error_handler(Exception, default_error_handler)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
