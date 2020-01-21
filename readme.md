@@ -16,7 +16,7 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone the repository
 
 ```sh
-$ git clone <https GitHub repo URL>
+$ git clone https://github.com/luciostocco/library.git
 ```
 
 2. Go to project folder
