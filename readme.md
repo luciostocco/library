@@ -22,7 +22,7 @@ $ git clone https://github.com/luciostocco/library.git
 2. Go to project folder
 
 ```sh
-$ cd xxxxx
+$ cd library
 ```
 
 3. In order to run the our dockerized app, we will execute the following command from the terminal:
