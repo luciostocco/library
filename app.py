@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 app.py: Main API routes handle.
 """

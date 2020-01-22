@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from bootstrap.app import *
 from models.book import BookModel
 from services.book_service import BookService

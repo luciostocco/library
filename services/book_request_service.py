@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from bootstrap.app import *
 from services.base_service import BaseService
 from models.book_request import BookRequestModel
@@ -21,7 +20,7 @@ class BookRequestService(BaseService):
         try:
             book_request = self.model.query.filter_by(id=id).first()
         except DBAPIError as err:
-            app.logger.log.error(err.orig)
+            app.logger.error(err.orig)
             self.model.session.rollback()
             self.model.session.flush()
             raise err
@@ -39,7 +38,7 @@ class BookRequestService(BaseService):
         try:
             book_request_list = self.model.query.all()
         except DBAPIError as err:
-            app.logger.log.error(err.orig)
+            app.logger.error(err.orig)
             self.model.session.rollback()
             self.model.session.flush()
             raise err
@@ -64,7 +63,7 @@ class BookRequestService(BaseService):
             db.session.commit()
 
         except DBAPIError as err:
-            app.logger.log.error(err.orig)
+            app.logger.error(err.orig)
             db.session.rollback()
             db.session.flush()
             raise err
@@ -81,7 +80,7 @@ class BookRequestService(BaseService):
             db.session.commit()
             success = True
         except Exception as err:
-            app.logger.log.info(str(err))
+            app.logger.info(str(err))
             db.session.rollback()
             db.session.flush()
             raise err

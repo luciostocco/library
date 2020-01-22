@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from bootstrap.app import *
 from sqlalchemy.exc import DBAPIError
 
@@ -21,5 +20,5 @@ class BaseService:
             db.create_all()
             db.session.commit()
         except DBAPIError as err:
-            app.logger.log.error(err.orig)
+            app.logger.error(err)
             raise err

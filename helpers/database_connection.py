@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import configparser
 from flask_sqlalchemy import SQLAlchemy
 
